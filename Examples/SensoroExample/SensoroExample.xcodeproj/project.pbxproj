@@ -355,9 +355,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Sensoro;
 				TargetAttributes = {
-					63148A6C1904F3F00028E578 = {
-						DevelopmentTeam = 72K9479UJ5;
-					};
 					63148A8D1904F3F00028E578 = {
 						TestTargetID = 63148A6C1904F3F00028E578;
 					};

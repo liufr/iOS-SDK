@@ -12,15 +12,6 @@
 #define DISTANCE_BUF_SIZE   5
 #define INVALID_DISTANCE    100000
 
-@class SNBeacon;
-
-enum SENSORO_TIME_REDUNDANCY {
-    SENSORO_TIME_REDUNDANCY_LOW = 0,
-    SENSORO_TIME_REDUNDANCY_NORMAL = 1,
-    SENSORO_TIME_REDUNDANCY_HIGHT = 2
-};
-
-
 @interface SNSensor : NSObject
 
 @property (readonly) NSString* key;
@@ -49,6 +40,5 @@ enum SENSORO_TIME_REDUNDANCY {
 - (void) clearBleDistance;
 
 + (SNSensor*) getInstanceFrom:(CLBeacon *) beacon;
-+ (SNSensor*) getInstanceFromBleBeacon:(SNBeacon *) beacon;
 
 @end
