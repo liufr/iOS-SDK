@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SNWebViewController">
+            <connections>
+                <outlet property="view" destination="1" id="8UN-C9-Cqq"/>
+                <outlet property="webView" destination="X7z-vC-7cm" id="0DP-9z-lDN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7z-vC-7cm">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </webView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ax9-kl-Ogi">
+                    <rect key="frame" x="7" y="520" width="35" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="ok">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="closeView:" destination="-1" eventType="touchUpInside" id="cS5-tG-3v8"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="X7z-vC-7cm" firstAttribute="leading" secondItem="ax9-kl-Ogi" secondAttribute="trailing" constant="-42" id="0Hs-J0-kiz"/>
+                <constraint firstAttribute="bottom" secondItem="X7z-vC-7cm" secondAttribute="bottom" id="0Qm-Ni-LUb"/>
+                <constraint firstItem="X7z-vC-7cm" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="2Gr-fw-KKd"/>
+                <constraint firstAttribute="trailing" secondItem="X7z-vC-7cm" secondAttribute="trailing" id="L4z-Mp-rcq"/>
+                <constraint firstItem="ax9-kl-Ogi" firstAttribute="top" secondItem="X7z-vC-7cm" secondAttribute="bottom" constant="-48" id="OR6-on-KkB"/>
+                <constraint firstItem="X7z-vC-7cm" firstAttribute="top" secondItem="1" secondAttribute="top" id="wG8-Od-jMO"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ok" width="35" height="35"/>
+    </resources>
+</document>

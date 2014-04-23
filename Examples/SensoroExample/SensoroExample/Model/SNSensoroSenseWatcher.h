@@ -31,8 +31,15 @@
 @property BOOL isFixedCorner;
 @property BOOL isVerifyArea;
 
+@property (nonatomic,strong) NSDictionary* goodsInfo;
+
 - (void) startService;
 - (void) stopService;
+
+//添加观测者。
+- (void) addObserver:(id<SensoroSenseDelegate>) watcher;
+//删除观测者。
+- (void) removeObserver:(id<SensoroSenseDelegate>) watcher;
 
 + (instancetype) sharedInstance;
 
