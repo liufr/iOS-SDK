@@ -8,6 +8,8 @@
 
 #import "SNAppDelegate.h"
 #import "SNSensoroSenseWatcher.h"
+#import "SNWebViewController.h"
+#import "SNGoodsImageShowController.h"
 
 @implementation SNAppDelegate
 
@@ -15,6 +17,29 @@
 {
     // Override point for customization after application launch.
     [[SNSensoroSenseWatcher sharedInstance] startService];
+    
+    //判断是否是用户点击Notification进入的。
+    UILocalNotification *localNotif =
+    [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (localNotif) {
+        NSLog(@"Call didFinishLaunchingWithOptions with local notification %@",localNotif);
+        
+        NSUInteger type = [[localNotif.userInfo objectForKey:@"type"] integerValue];
+        if (type == 1) {
+            NSString * url = [localNotif.userInfo objectForKey:@"url"];
+            
+            if (url != nil) {
+                self.localNotifURL = [NSDictionary dictionaryWithObjectsAndKeys:url,@"url",@"yes",@"hasUrl", nil];
+                [self showNotificationInfo:localNotif application:application];
+            }
+        }else if(type == 2 || type == 3){
+            NSString * bid = [localNotif.userInfo objectForKey:@"bid"];
+            
+            if (bid != nil) {
+                [self showNotificationInfo:localNotif application:application];
+            }
+        }
+    }
     
     return YES;
 }
@@ -44,6 +69,48 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[SNSensoroSenseWatcher sharedInstance] stopService];
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    
+    UIApplicationState state = [UIApplication sharedApplication].applicationState;
+    if ( state == UIApplicationStateInactive ){
+        [self showNotificationInfo:notification application:application];
+    }
+}
+
+- (void) showNotificationInfo:(UILocalNotification*)notification application:(UIApplication*)application{
+    NSUInteger type = [[notification.userInfo objectForKey:@"type"] integerValue];
+    if (type == 1) {
+        NSString * url = [notification.userInfo objectForKey:@"url"];
+        
+        if (url == nil) {
+            return;
+        }
+        
+        SNWebViewController * controller = [[SNWebViewController alloc]
+                                            initWithNibName:@"GoodsWeb"
+                                            bundle:nil];
+        if (controller != nil) {
+            controller.url = url;
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:controller animated:YES completion:nil];
+        }
+    }else if (type == 2 || type == 3){
+        SNGoodsImageShowController * controller = [[SNGoodsImageShowController alloc]
+                                                   initWithNibName:@"GoodsImage"
+                                                   bundle:nil];
+        if (controller != nil) {
+            controller.info = notification.userInfo;
+            //[controller presentedViewController];
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:controller animated:YES completion:nil];
+        }
+    }else{
+        [[UIApplication sharedApplication].keyWindow.rootViewController.navigationController popToRootViewControllerAnimated:YES];
+    }
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    [application cancelAllLocalNotifications];
 }
 
 @end

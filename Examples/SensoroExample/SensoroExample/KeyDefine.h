@@ -10,5 +10,14 @@
 #define SensoroExample_KeyDefine_h
 
 #define ENTER_KEY @"enter"
+#define LEAVE_KEY @"leave"
+#define STAY_KEY @"stay"
+
+#define ACTION_SRC_TYPE_ZONE    @"zone"
+#define ACTION_SRC_TYPE_SPOT    @"spot"
+
+#define MESSAGE_KEY @"message"
+#define URL_KEY @"url"
+#define CONTENT_KEY @"content"
 
 #endif

@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@class SNSensor;
-@class SNZoneWatcher;
-
 #pragma mark Protocol
 
 //绑定到对象上的信息。
