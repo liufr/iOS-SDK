@@ -16,4 +16,4 @@
     SDK。 
 
 
-[关于Sensoro](http://www.sensoro.com)
+<a href="http://www.sensoro.com" target="_blank">关于Sensoro</a>
