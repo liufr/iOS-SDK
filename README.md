@@ -10,7 +10,7 @@
     存放各种文档。 
  2. Examples
 
-    存放各种文档。 
+    各种商业模式的例子代码。 
  3. SensoroSDK
 
     SDK。 
