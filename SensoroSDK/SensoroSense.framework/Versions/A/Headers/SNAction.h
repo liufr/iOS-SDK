@@ -24,14 +24,15 @@
 @end
 
 @interface SNAction : NSObject
-// -- 基础，对每个不同的 app 都相同
-// String timestamp, // 从客户端的发出时间
-// int ttl, // 有效期，若 timestamp+ttl < now 则响应无效
-@property (nonatomic,strong) NSArray* type; // 交互结果的类型：提示，积分，发券
+// 交互结果的类型：提示，积分，发券
+@property (nonatomic,strong) NSArray* type;
 // -- 扩展，每个 app 不同
-@property (nonatomic,strong) NSDictionary* params; // 开发者自行配置的信息，交互参数，积分URL，发券URL等
+// 开发者自行配置的信息，交互参数，积分URL，发券URL等
+@property (nonatomic,strong) NSDictionary* params;
 // -- 交互发生的情况
 @property (nonatomic,strong) SNActionEvent* event;
+
+@property (nonatomic,strong) NSError* error;//用于标识是否发生了错误。
 
 + (instancetype) getInstanceFrom: (NSDictionary*) dict;
 

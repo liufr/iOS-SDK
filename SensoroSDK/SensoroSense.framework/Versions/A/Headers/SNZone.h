@@ -18,6 +18,6 @@
 
 @property (readonly) BOOL isDirty;
 
-+ (SNZone*) getInstanceFrom: (NSDictionary*) dict;
++ (instancetype) getInstanceFrom: (NSDictionary*) dict;
 
 @end

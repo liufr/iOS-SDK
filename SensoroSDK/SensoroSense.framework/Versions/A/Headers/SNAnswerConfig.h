@@ -21,7 +21,6 @@
 - (void) configFromServer:(NSDictionary*)config;
 - (void) loadConfigFromServer;
 
-
 + (instancetype)sharedInstance;
 
 @end

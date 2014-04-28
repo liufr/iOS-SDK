@@ -12,6 +12,8 @@
 #define DISTANCE_BUF_SIZE   5
 #define INVALID_DISTANCE    100000
 
+@class SNBeacon;
+
 @interface SNSensor : NSObject
 
 @property (readonly) NSString* key;
@@ -39,6 +41,7 @@
 - (void) pushBleDistance:(CLLocationAccuracy) dist;
 - (void) clearBleDistance;
 
-+ (SNSensor*) getInstanceFrom:(CLBeacon *) beacon;
++ (instancetype) getInstanceFrom:(CLBeacon *) beacon;
++ (instancetype) getInstanceFromBleBeacon:(SNBeacon *) beacon;
 
 @end
