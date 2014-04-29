@@ -81,8 +81,7 @@
     if ([action.event.name isEqualToString:ENTER_KEY] &&
         [action.event.type isEqualToString:ACTION_SRC_TYPE_ZONE] &&
         action.params != nil) {
-        
-        id temp = [action.params objectForKey:MESSAGE_KEY];
+                                                                                                                                                                                                                                                                id temp = [action.params objectForKey:MESSAGE_KEY];
         if ( temp != nil &&
             [temp isKindOfClass:[NSDictionary class]]) {
             NSDictionary * dict = temp;
@@ -248,14 +247,13 @@
                 }else{
                     [dictTemp setObject:[NSNumber numberWithInt:1]
                                  forKey:@"type"];
-                    
                     [dictTemp setObject:url
                                  forKey:@"url"];
                 }
                 [dictTemp setObject:content
                              forKey:CONTENT_KEY];
                 dict = dictTemp;
-            }
+                    }
             
             [self sendNotification:content userInfo:dict];
             return;
