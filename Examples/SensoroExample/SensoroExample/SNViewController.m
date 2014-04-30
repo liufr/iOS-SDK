@@ -13,6 +13,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *enterState;
 @property (weak, nonatomic) IBOutlet UILabel *goodsState;
+@property (strong, nonatomic) IBOutlet UILabel *creditState;
+@property (strong, nonatomic) IBOutlet UILabel *creditTimes;
+@property (strong, nonatomic) IBOutlet UILabel *fixedcornerState;
+@property (strong, nonatomic) IBOutlet UILabel *verifyState;
 
 @end
 
@@ -21,7 +25,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 
     [[SNSensoroSenseWatcher sharedInstance] addObserver:self];
     if ([SNSensoroSenseWatcher sharedInstance].isEntering) {
@@ -32,7 +35,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void) viewDidAppear:(BOOL)animated{
@@ -60,18 +62,42 @@
 }
 
 - (void) creditOk:(NSDictionary*)retInfo{
+    if ([SNSensoroSenseWatcher sharedInstance].creditTimes > 0) {
+        self.creditState.text = @"已触发";
+        self.creditTimes.text = [NSString stringWithFormat:@"%ld次",[SNSensoroSenseWatcher sharedInstance].creditTimes];
+    }
 }
 
 - (void) fixedCornerEnter:(NSDictionary*)retInfo{
+    if ([SNSensoroSenseWatcher sharedInstance].isFixedCorner) {
+        self.fixedcornerState.text = @"已进入";
+    }else{
+        self.fixedcornerState.text = @"已离开";
+    }
 }
 
 - (void) fixedCornerLeave:(NSDictionary*)retInfo{
+    if ([SNSensoroSenseWatcher sharedInstance].isFixedCorner) {
+        self.fixedcornerState.text = @"已进入";
+    }else{
+        self.fixedcornerState.text = @"已离开";
+    }
 }
 
 - (void) payAreaEnter:(NSDictionary*)retInfo{
+    if ([SNSensoroSenseWatcher sharedInstance].isVerifyArea) {
+        self.verifyState.text = @"已激活";
+    }else{
+        self.verifyState.text = @"未激活";
+    }
 }
 
 - (void) payAreaLeave:(NSDictionary*)retInfo{
+    if ([SNSensoroSenseWatcher sharedInstance].isVerifyArea) {
+        self.verifyState.text = @"已激活";
+    }else{
+        self.verifyState.text = @"未激活";
+    }
 }
 
 @end

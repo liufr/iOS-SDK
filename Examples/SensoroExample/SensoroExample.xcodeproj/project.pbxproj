@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		284A7998190E098100C5141C /* SensoroSense.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284A7997190E098100C5141C /* SensoroSense.framework */; };
 		63148A711904F3F00028E578 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63148A701904F3F00028E578 /* Foundation.framework */; };
 		63148A731904F3F00028E578 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63148A721904F3F00028E578 /* CoreGraphics.framework */; };
 		63148A751904F3F00028E578 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63148A741904F3F00028E578 /* UIKit.framework */; };
@@ -26,7 +27,6 @@
 		63148AAE190500300028E578 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63148AAD190500300028E578 /* CoreLocation.framework */; };
 		63148AB0190500560028E578 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63148AAF190500560028E578 /* SystemConfiguration.framework */; };
 		63148AB2190500EF0028E578 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 63148AB1190500EF0028E578 /* libc++.dylib */; };
-		63148AB519051E940028E578 /* SensoroSense.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63148AB419051E940028E578 /* SensoroSense.framework */; };
 		63148ABE19052A630028E578 /* GoodsImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63148AB819052A630028E578 /* GoodsImage.xib */; };
 		63148ABF19052A630028E578 /* GoodsWeb.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63148AB919052A630028E578 /* GoodsWeb.xib */; };
 		63148AC019052A630028E578 /* SNGoodsImageShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63148ABB19052A630028E578 /* SNGoodsImageShowController.m */; };
@@ -58,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		284A7997190E098100C5141C /* SensoroSense.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SensoroSense.framework; path = ../../SensoroSDK/SensoroSense.framework; sourceTree = "<group>"; };
 		63148A6D1904F3F00028E578 /* SensoroExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SensoroExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63148A701904F3F00028E578 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		63148A721904F3F00028E578 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,7 +85,6 @@
 		63148AAF190500560028E578 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		63148AB1190500EF0028E578 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		63148AB3190512BD0028E578 /* KeyDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyDefine.h; sourceTree = "<group>"; };
-		63148AB419051E940028E578 /* SensoroSense.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SensoroSense.framework; path = ../../SensoroSDK/SensoroSense.framework; sourceTree = "<group>"; };
 		63148AB819052A630028E578 /* GoodsImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsImage.xib; sourceTree = "<group>"; };
 		63148AB919052A630028E578 /* GoodsWeb.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsWeb.xib; sourceTree = "<group>"; };
 		63148ABA19052A630028E578 /* SNGoodsImageShowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNGoodsImageShowController.h; sourceTree = "<group>"; };
@@ -127,8 +127,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63148AB519051E940028E578 /* SensoroSense.framework in Frameworks */,
 				63148AB2190500EF0028E578 /* libc++.dylib in Frameworks */,
+				284A7998190E098100C5141C /* SensoroSense.framework in Frameworks */,
 				63148AB0190500560028E578 /* SystemConfiguration.framework in Frameworks */,
 				63148AAE190500300028E578 /* CoreLocation.framework in Frameworks */,
 				63148AAC190500180028E578 /* CoreBluetooth.framework in Frameworks */,
@@ -173,8 +173,8 @@
 		63148A6F1904F3F00028E578 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				284A7997190E098100C5141C /* SensoroSense.framework */,
 				63148AB1190500EF0028E578 /* libc++.dylib */,
-				63148AB419051E940028E578 /* SensoroSense.framework */,
 				63148AAF190500560028E578 /* SystemConfiguration.framework */,
 				63148AAD190500300028E578 /* CoreLocation.framework */,
 				63148AAB190500180028E578 /* CoreBluetooth.framework */,
@@ -555,6 +555,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../../SensoroSDK",
+					/Users/abc/Desktop/SDK/SensoroSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SensoroExample/SensoroExample-Prefix.pch";
@@ -574,6 +575,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/../../SensoroSDK",
+					/Users/abc/Desktop/SDK/SensoroSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SensoroExample/SensoroExample-Prefix.pch";

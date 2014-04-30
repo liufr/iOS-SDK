@@ -17,6 +17,12 @@
 #define ACTION_SRC_TYPE_SPOT    @"spot"
 
 #define MESSAGE_KEY @"message"
+#define CREDIT_KEY @"credit"
+#define GOODS_KEY @"goods"
+#define VERIFY_KEY @"verify"
+#define FIXEDCORNER_KEY @"fixedcorner"
+#define VID_KEY @"vid"
+#define PID_KEY @"pid"
 #define URL_KEY @"url"
 #define CONTENT_KEY @"content"
 

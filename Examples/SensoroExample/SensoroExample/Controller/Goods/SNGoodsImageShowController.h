@@ -18,7 +18,12 @@
 
 - (IBAction)backToPrev:(id)sender;
 
-//placeholder:占位图片 imageURL:读取图片的url，不用时要使用清空方法清空
+/**
+ *  设置优惠券的图片
+ *
+ *  @param placeholder 占位图片
+ *  @param url         读取图片的url，不用时要使用清空方法清空
+ */
 - (void)setCouponImage:(UIImage *)placeholder imageURL:(NSURL *)url;
 - (void)setMsg:(NSString *)msg;
 - (void)cleanURL;
