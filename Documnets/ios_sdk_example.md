@@ -3,14 +3,14 @@
 #### 项目概述   
 
 该项目使用SDK的Action层接口，演示了SDK的几个基本商业场景的实现，主要包括：  
- 
+
 - 进店消息，一体化购物（进入区域）  
 - 离店消息（离开区域）   
 - 积分获取（在区域内停留）  
 - 淘金角（点的进入、离开及停留）   
-- 支付认证区域（点的进入、离开）
+- 支付认证区域（点的进入、离开）  
 
-该项目在__SNSensoroSenseWatcher__实现了SDK Action层的相关接口，并针对实际商业场景封装了响应的接口
+该项目在__SNSensoroSenseWatcher__实现了SDK Action层的相关接口，并针对实际商业场景封装了响应的接口    
 
 ####  SNSensoroSenseWatcher.h      
 
@@ -60,11 +60,15 @@
 
 retInfo是一个NSDictionary对象，可以存储通过Action回调的各项参数，其中第一项为此次请求的状态。0-成功 1 - 失败。第二项为NSDictionary，内容为返回的参数内容,retInfo结构参考示例:
 
-```  
- @{@"result" :	@[ @0,
- 			  	   @{@"message":@"enter message"}
- 			  	 ]
-  };
+```
+{
+    "result": [
+        0, 
+        {
+            "message": "enter message"
+        }
+    ]
+}
 ```
 
 #### 商业场景实现
@@ -97,7 +101,7 @@ retInfo是一个NSDictionary对象，可以存储通过Action回调的各项参�
 * __进店消息配置__  
 
 * param:显示消息的dictionary，示例：   
-	* `@{@"message" : @{@"content" : @"This is an enter message."} }`
+	* `{"message":{"content":"This is an enter message."}}`
 * event配置
 	* type:"zone"
 	* name:"enter"
@@ -109,7 +113,7 @@ retInfo是一个NSDictionary对象，可以存储通过Action回调的各项参�
 * __离店消息配置__    
 
 * param:显示消息的dictionary，示例：   
-	* `@{@"message" : @{@"content" : @"This is a leave message."} }`
+	* `{"message":{"content":"This is a leave message."}}`
 * event配置
 	* type:"zone"
 	* name:"leave"
@@ -180,8 +184,13 @@ if ([action.event.name isEqualToString:@"leave"] &&
   
 * param:显示消息的dictionary，示例：   
 	
-	```@{@"goods" : @{@"content" : @"This is a goods message.",
-						 @"url" : @"www.goodsurl.com"}```
+	```
+{
+    "credit": {
+        "content": "This is a credit message."
+    }
+}  
+```
 * event配置
 	* type:"zone"
 	* name:"enter"
@@ -225,7 +234,13 @@ if (action.params != nil) {
   
 * param:显示消息的dictionary，示例：   
 	
-	```@{@"credit" : @{@"content" : @"This is a credit message."}```
+```
+{
+    "credit": {
+        "content": "This is a credit message."
+    }
+}
+```
 * event配置
 	* type:"spot"
 	* name:"stay"
@@ -277,7 +292,7 @@ if ([action.event.name isEqualToString:@"stay"] &&
 	* type:"spot"
 	* name:"enter"
 	* spot:对应事件的spot
-		* spot param:```@{@"type" : @"verify" , @"vid" : @"1"}```
+		* spot param:```{"type":"verify","vid":"1"}```
 		* spot type:"verify"
 	* zone:对应事件的zone 
 * 将enter的remote属性设置为true
@@ -354,7 +369,7 @@ if ([action.event.type isEqualToString:ACTION_SRC_TYPE_SPOT] &&
 	* type:"spot"
 	* name:"enter"
 	* spot:对应事件的spot
-		* spot param:```@{@"type" : @"fixedcorner" , @"pid" : @"1"}```
+		* spot param:```{"type":"fixedcorner","pid":"1"}```
 		* spot type:"fixedcorner"
 	* zone:对应事件的zone 
 * 将enter的remote属性设置为true
@@ -439,7 +454,6 @@ if ([action.event.type isEqualToString:@"spot"] &&
         
         if ([action.event.name isEqualToString:@"enter"]) {
             [self onInCorner:action];
-            
         }
         
         if ([action.event.name isEqualToString:@"stay"]) {
